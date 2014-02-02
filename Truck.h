@@ -9,6 +9,7 @@
 #include <list>
 #include <string>
 #include "Package.h"
+#include "NullPackage.h"
 using namespace std;
 
 class Truck {
@@ -20,6 +21,7 @@ private:
     string dcity;
     string altinfo;
     int maxpkgs;
+    int numpkgs=0;
     double full;
     double unloaded;
     vector<Package*> cargoList;
@@ -37,6 +39,7 @@ public:
     string getDestCity() const { return dcity; }
     string getAltInfo() const { return altinfo; }
     int getMaxPkgs() const { return maxpkgs; }
+    int getNumPkgs() const { return numpkgs; };
     double getFullWeight() const { return full; }
     double getUnloadedWeight() const { return unloaded; }
 
@@ -48,6 +51,7 @@ public:
     void setMaxPkgs(int maxpkgs);
     void setFullWeight(double full);
     void setUnloadedWeight(double unloaded);
+    void setNumPkgs(int numpkgs);
 
     /* Subroutines */
     void addCargo(Package **pkg);

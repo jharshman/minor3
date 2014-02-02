@@ -53,9 +53,14 @@ void Truck::setAltInfo(string pinfo) {
     altinfo = pinfo;
 }
 
-/* setNumPackages */
+/* setMaxPkgs */
 void Truck::setMaxPkgs(int pnum) {
     maxpkgs = pnum;
+}
+
+/* setNumPkgs */
+void Truck::setNumPkgs(int pnumpkgs) {
+    numpkgs = pnumpkgs;
 }
 
 /* setFullWeight */
@@ -70,6 +75,9 @@ void Truck::setUnloadedWeight(double pweight) {
 
 /* addCargo */
 void Truck::addCargo(Package **pkg) {
+    setNumPkgs((getNumPkgs() + 1));
+    if(getNumPkgs() > getMaxPkgs())
+        throw NullPackage((*pkg)->getTrackingNumber(), (*pkg)->getWeight(), "NOT LOADING. TRUCK FULL");
     full += (*pkg)->getWeight();
     cargoList.push_back(*pkg);
 }

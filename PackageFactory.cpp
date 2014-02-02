@@ -1,5 +1,5 @@
 //
-// Created by voodoo on 8/7/15.
+// Created by Josh on 8/7/15.
 //
 
 #include "PackageFactory.h"
@@ -18,30 +18,30 @@ Package* PackageFactory::createPackage(int trackingnumber, double weight) {
                 break;
             }
             else
-                break;
+                throw NullPackage(trackingnumber, weight, "UNKNOWN. NOT LOADED");
         case PackageFactory::BOX:
             if(weight <= BOX_WEIGHT) {
                 package = new Box(trackingnumber, weight, "Box");
                 break;
             }
             else
-                break;
+                throw NullPackage(trackingnumber, weight, "UNKNOWN. NOT LOADED");
         case PackageFactory::WOODENCRATE:
             if(weight <= WOODENCRATE_WEIGHT) {
                 package = new WoodCrate(trackingnumber, weight, "Wooden Crate");
                 break;
             }
             else
-                break;
+                throw NullPackage(trackingnumber, weight, "UNKNOWN.  NOT LOADED");
         case PackageFactory::METALCRATE:
             if(weight <= METALCRATE_WEIGHT) {
                 package = new MetalCrate(trackingnumber, weight, "Metal Crate");
                 break;
             }
             else
-                break;
+                throw NullPackage(trackingnumber, weight, "UNKNOWN.  NOT LOADED");
         default:
-            package = new NullPackage(trackingnumber, weight, "Unknown Package");
+            throw NullPackage(trackingnumber, weight, "UNKNOWN.  NOT LOADED");
 
     } // end switch
 

@@ -34,13 +34,18 @@ int main() {
 
     Truck truck = Truck(driver_name, truck_weight, origin_city, destination_city, max_packages);
     PackageFactory *packageFactory = new PackageFactory();
+    Package *aPackage;
     while (true) {
         infile >> tracking >> weight;
         if(infile.eof()) break;
-        Package *aPackage = packageFactory->createPackage(tracking, weight);
-        truck.addCargo(&aPackage);
+        try {
+            aPackage = packageFactory->createPackage(tracking, weight);
+            truck.addCargo(&aPackage);
+        }catch(NullPackage &nullPackage) {
+            continue;
+        }
     }
-
+    //print to stdout.  debugging purposes.  Does not show entire log
     truck.printCargo();
 
     return 0;
