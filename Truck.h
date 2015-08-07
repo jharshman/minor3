@@ -1,11 +1,12 @@
 /**
  * Truck.h
- * written by Josh Harshman
+ * written by Joshua Harshman
  * 08/05/15
  * */
 
 #ifndef __TRUCK_H__
 #define __TRUCK_H__
+
 #define MAXPACKAGES 500
 
 class Truck {
@@ -15,7 +16,7 @@ class Truck {
                 string name;
                 string ocity;
                 string dcity;
-                string alteinfo;
+                string altinfo;
                 int numpackages;
                 double full;
                 double unloaded;
@@ -45,4 +46,6 @@ class Truck {
                 void setFullWeight(double full);
                 void setUnloadedWeight(double unloaded);
 
-} // end class Truck
+}; // end class Truck
+
+#endif
