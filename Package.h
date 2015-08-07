@@ -1,7 +1,7 @@
 /**
  * Package.h
  * written by Joshua Harshman
- * 05/08/15
+ * 08/05/15
  * */
 
 #ifndef __PACKAGE_H__
@@ -27,13 +27,17 @@ class Package {
                 Package(const Package &orig);
                 ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
 
+                /* Accessors */
+                int getTrackingNumber() { return trackingnumber; }
+                double getWeight() { return weight; }
+
                 /* Modifiers */
                 void setTrackingNumber(int trackingnumber);
                 void setWeight(double weight);
                 void setShippingCost(double shippingcost);
                 
                 /* Subroutines */
-                string evaluateTrackingNumber();
+                string evaluateTrackingNumber(int trackingnumber);
                 bool evaluateWeight();
 
                 /* Abstract Subroutines */
