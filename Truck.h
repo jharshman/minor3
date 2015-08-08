@@ -1,13 +1,12 @@
-/**
- * Truck.h
- * written by Joshua Harshman
- * 08/05/15
- * */
+//
+// Created by voodoo on 8/7/15.
+//
 
-#ifndef __TRUCK_H__
-#define __TRUCK_H__
+#ifndef MINOR3_5_TRUCK_H
+#define MINOR3_5_TRUCK_H
 
-#define MAXPACKAGES 500
+#include <string>
+using namespace std;
 
 class Truck {
 
@@ -29,13 +28,13 @@ class Truck {
                 Truck(const Truck &orig);
 
                 /* Accessors */
-                string getName() { return name; }
-                string getOriginCity() {return ocity; }
-                string getDestCity() { return dcity; }
-                string getAltInfo() { return altinfo; }
-                int getNumPackages() { return numpackages; }
-                double getFullWeight() { return full; }
-                double getUnloadedWeight() { return unloaded; }
+                string getName() const { return name; }
+                string getOriginCity() const {return ocity; }
+                string getDestCity() const { return dcity; }
+                string getAltInfo() const { return altinfo; }
+                int getNumPackages() const { return numpackages; }
+                double getFullWeight() const { return full; }
+                double getUnloadedWeight() const { return unloaded; }
 
                 /* Modifiers */
                 void setName(string name);
@@ -46,6 +45,6 @@ class Truck {
                 void setFullWeight(double full);
                 void setUnloadedWeight(double unloaded);
 
-}; // end class Truck
+};
 
-#endif
+#endif //MINOR3_5_TRUCK_H

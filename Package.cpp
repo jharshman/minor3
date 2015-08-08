@@ -1,8 +1,6 @@
-/**
- * Package.cpp
- * written by Joshua Harshman
- * 08/06/15
- * */
+//
+// Created by voodoo on 8/7/15.
+//
 
 #include "Package.h"
 
@@ -21,32 +19,31 @@ Package::Package(int trackingnumber, double weight) {
 /* Copy Constructor */
 Package::Package(const Package &orig) {
         setTrackingNumber(orig.getTrackingNumber());
-        setWeight(orig.getWeight);
+        setWeight(orig.getWeight());
 }
 
 /* setTrackingNumber */
-void setTrackingNumber(int ptracking) {
+void Package::setTrackingNumber(int ptracking) {
         trackingnumber = ptracking;
 }
 
 /* setWeight */
-void setWeight(double pweight) {
+void Package::setWeight(double pweight) {
         weight = pweight;
 }
 
 /* setShippingCost */
-void setShippingCost(double pcost) {
+void Package::setShippingCost(double pcost) {
         shippingcost = pcost;
 }
 
 /* evaluateTracking */
-string evaluateTrackingNumber(int ptracking) {
+string Package::evaluateTrackingNumber(int ptracking) {
         return "Letter";
 }
 
 /* evaluateWeight */
-bool evaluateWeight(double pweight, string ptype) {
+bool Package::evaluateWeight(double pweight, string ptype) {
         return (pweight < ptype);
 }
-
 

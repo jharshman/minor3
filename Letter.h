@@ -1,15 +1,15 @@
-/**
- * Letter.h
- * written by Joshua Harshman
- * 08/05/15
- * */
+//
+// Created by voodoo on 8/7/15.
+//
 
-#ifndef __LETTER_H__
-#define __LETTER_H__
+#ifndef MINOR3_5_LETTER_H
+#define MINOR3_5_LETTER_H
 
-#define COST .05
+#include "Package.h"
 
-class Letter: public Package {
+#define COST 0.5
+
+class Letter : public Package {
 
         public:
                 /* Constructors and Destructors */
@@ -17,17 +17,17 @@ class Letter: public Package {
                 Letter(int trackingnumber, double weight);
                 Letter(const Letter &orig);
                 ~Letter() {};
-                
+
                 /* Accessors */
-                int getTrackingNumber() { return trackingnumber; }
-                double getWeight() { return weight; }
-                double getShippingCost() { return shippingcost };
+                int getTrackingNumber() const { return trackingnumber; }
+                double getWeight() const { return weight; }
+                double getShippingCost() const { return shippingcost; };
 
                 /* Abstract Implementations */
                 double calculateShippingCost() {
                         return (getWeight() * COST);
                 }
 
-}; // end class Package
+};
 
-#endif
+#endif //MINOR3_5_LETTER_H

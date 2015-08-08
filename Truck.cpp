@@ -1,8 +1,6 @@
-/**
- * Truck.cpp
- * written by Joshua Harshman
- * 08/06/15
- * */
+//
+// Created by voodoo on 8/7/15.
+//
 
 #include "Truck.h"
 
@@ -11,7 +9,7 @@ Truck::Truck() {
        setName("default");
        setOriginCity("default");
        setDestCity("default");
-       setFullWeight("default");
+       setFullWeight(0.00);
 }
 
 /* Constructor */
@@ -64,4 +62,3 @@ void Truck::setFullWeight(double pweight) {
 void Truck::setUnloadedWeight(double pweight) {
         unloaded = pweight;
 }
-

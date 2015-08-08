@@ -1,11 +1,13 @@
-/**
- * Package.h
- * written by Joshua Harshman
- * 08/05/15
- * */
+//
+// Created by voodoo on 8/7/15.
+//
 
-#ifndef __PACKAGE_H__
-#define __PACKAGE_H__
+#ifndef MINOR3_5_PACKAGE_H
+#define MINOR3_5_PACKAGE_H
+
+#include <iostream>
+#include <string>
+using namespace std;
 
 #define LETTER 2
 #define BOX 40
@@ -16,7 +18,7 @@ class Package {
 
         protected:
                 /* Instance Variables */
-                int trackingnumber; 
+                int trackingnumber;
                 double weight;
                 double shippingcost;
 
@@ -28,21 +30,21 @@ class Package {
                 ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
 
                 /* Accessors */
-                int getTrackingNumber() { return trackingnumber; }
-                double getWeight() { return weight; }
+                int getTrackingNumber() const { return trackingnumber; }
+                double getWeight() const { return weight; }
 
                 /* Modifiers */
                 void setTrackingNumber(int trackingnumber);
                 void setWeight(double weight);
                 void setShippingCost(double shippingcost);
-                
+
                 /* Subroutines */
                 string evaluateTrackingNumber(int trackingnumber);
-                bool evaluateWeight();
+                bool evaluateWeight(double pweight, string ptype);
 
                 /* Abstract Subroutines */
                 virtual double calculateShippingCost(){};
 
-}; // end class Package
+};
 
-#endif
+#endif //MINOR3_5_PACKAGE_H
