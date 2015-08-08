@@ -9,41 +9,37 @@
 #include <string>
 using namespace std;
 
-#define LETTER 2
-#define BOX 40
-#define WOODENCRATE 80
-#define METALCRATE 100
+#define LETTER_WEIGHT 2
+#define BOX_WEIGHT 40
+#define WOODENCRATE_WEIGHT 80
+#define METALCRATE_WEIGHT 100
 
 class Package {
 
-        protected:
-                /* Instance Variables */
-                int trackingnumber;
-                double weight;
-                double shippingcost;
+    protected:
+        /* Instance Variables */
+       int trackingnumber;
+       double weight;
+       double shippingcost;
 
-        public:
-                /* Constructors and Destructors */
-                Package();
-                Package(int trackingnumber, double weight);
-                Package(const Package &orig);
-                ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
+    public:
+    /* Constructors and Destructors */
+    Package();
+    Package(int trackingnumber, double weight);
+    Package(const Package &orig);
+    ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
 
-                /* Accessors */
-                int getTrackingNumber() const { return trackingnumber; }
-                double getWeight() const { return weight; }
+    /* Accessors */
+    int getTrackingNumber() const { return trackingnumber; }
+    double getWeight() const { return weight; }
 
-                /* Modifiers */
-                void setTrackingNumber(int trackingnumber);
-                void setWeight(double weight);
-                void setShippingCost(double shippingcost);
+    /* Modifiers */
+    void setTrackingNumber(int trackingnumber);
+    void setWeight(double weight);
+    void setShippingCost(double shippingcost);
 
-                /* Subroutines */
-                string evaluateTrackingNumber(int trackingnumber);
-                bool evaluateWeight(double pweight, string ptype);
-
-                /* Abstract Subroutines */
-                virtual double calculateShippingCost(){};
+    /* Abstract Subroutines */
+    virtual double calculateShippingCost()=0;
 
 };
 

@@ -11,22 +11,22 @@
 
 class Letter : public Package {
 
-        public:
-                /* Constructors and Destructors */
-                Letter();
-                Letter(int trackingnumber, double weight);
-                Letter(const Letter &orig);
-                ~Letter() {};
+    public:
+        /* Constructors and Destructors */
+        Letter();
+        Letter(int trackingnumber, double weight);
+        Letter(const Letter &orig);
+        ~Letter() {};
 
-                /* Accessors */
-                int getTrackingNumber() const { return trackingnumber; }
-                double getWeight() const { return weight; }
-                double getShippingCost() const { return shippingcost; };
+        /* Accessors */
+        int getTrackingNumber() const { return trackingnumber; }
+        double getWeight() const { return weight; }
+        double getShippingCost() const { return shippingcost; };
 
-                /* Abstract Implementations */
-                double calculateShippingCost() {
-                        return (getWeight() * COST);
-                }
+        /* Abstract Implementations */
+        double calculateShippingCost() {
+            return (getWeight() * COST);
+        }
 
 };
 
