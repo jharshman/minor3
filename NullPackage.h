@@ -8,6 +8,7 @@
 #include "Package.h"
 
 class NullPackage : public Package {
+
 public:
     /* Constructors and Destructors */
     NullPackage();

@@ -39,7 +39,7 @@ class Package {
     void setShippingCost(double shippingcost);
 
     /* Abstract Subroutines */
-    virtual double calculateShippingCost()=0;
+    //virtual double calculateShippingCost()=0;
 
 };
 
