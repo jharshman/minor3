@@ -18,8 +18,7 @@ int main() {
     PackageFactory *packageFactory = new PackageFactory();
     Package *p1 = packageFactory->createPackage(123450, 1);
 
-    // see what we got
-    string drivername=t1.getName();
-    cout << "Driver: " << drivername << endl;
+
+
     return 0;
 }

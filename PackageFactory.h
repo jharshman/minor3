@@ -6,6 +6,9 @@
 #define MINOR3_5_PACKAGEFACTORY_H
 #include "Package.h"
 #include "Letter.h"
+#include "Box.h"
+#include "WoodCrate.h"
+#include "MetalCrate.h"
 #include "NullPackage.h"
 
 class PackageFactory {

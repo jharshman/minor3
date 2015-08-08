@@ -7,7 +7,7 @@
 
 #include "Package.h"
 
-#define COST 0.5
+#define LETTER_COST 0.5
 
 class Letter : public Package {
 
@@ -23,11 +23,11 @@ class Letter : public Package {
         double getWeight() const { return weight; }
         double getShippingCost() const { return shippingcost; };
 
-        /* Abstract Implementations */
+        /* Abstract Implementations
         double calculateShippingCost() {
             return (getWeight() * COST);
         }
-
+        */
 };
 
 #endif //MINOR3_5_LETTER_H
