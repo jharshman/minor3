@@ -63,4 +63,17 @@ void Truck::setUnloadedWeight(double pweight) {
     unloaded = pweight;
 }
 
+/* addCargo */
+void Truck::addCargo(Package &pkg) {
+    cargoList.push_back(pkg);
+}
+
+/* printCargo */
+void Truck::printCargo() {
+    list<Package>::iterator index;
+    for(index = cargoList.begin(); index != cargoList.end(); index++) {
+        cout << "Package: " << index->getName() << endl;
+        cout << "Tracking Number: " << index->getTrackingNumber() << endl;
+    }
+}
 

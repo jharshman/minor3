@@ -12,10 +12,9 @@ class Box : public Package {
 public:
     /* Constructors and Destructors */
     Box();
-    Box(int trackingnumber, double weight);
+    Box(int trackingnumber, double weight, string name);
     Box(const Box &orig);
-    ~Box(){};
-
+    ~Box(){}
 };
 
 #endif //MINOR3_5_BOX_H

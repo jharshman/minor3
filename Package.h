@@ -16,27 +16,32 @@ using namespace std;
 
 class Package {
 
-    protected:
-        /* Instance Variables */
-       int trackingnumber;
-       double weight;
-       double shippingcost;
+protected:
+    /* Instance Variables */
+    int trackingnumber;
+    double weight;
+    double shippingcost;
+    string name;
 
-    public:
+public:
     /* Constructors and Destructors */
+    /*
     Package();
-    Package(int trackingnumber, double weight);
+    Package(int trackingnumber, double weight, string name);
     Package(const Package &orig);
+     */
     ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
 
     /* Accessors */
     int getTrackingNumber() const { return trackingnumber; }
     double getWeight() const { return weight; }
+    string getName() const { return name; };
 
     /* Modifiers */
     void setTrackingNumber(int trackingnumber);
     void setWeight(double weight);
     void setShippingCost(double shippingcost);
+    void setName(string name);
 
     /* Abstract Subroutines */
     //virtual double calculateShippingCost()=0;

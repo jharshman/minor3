@@ -11,9 +11,9 @@ class MetalCrate : public Package {
 
 public:
     MetalCrate();
-    MetalCrate(int trackingnumber, double weight);
+    MetalCrate(int trackingnumber, double weight, string name);
     MetalCrate(const MetalCrate &orig);
-    ~MetalCrate(){};
+    ~MetalCrate(){}
 
 };
 

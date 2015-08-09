@@ -12,14 +12,9 @@ class NullPackage : public Package {
 public:
     /* Constructors and Destructors */
     NullPackage();
-    NullPackage(int trackingnumber, double weight);
+    NullPackage(int trackingnumber, double weight, string name);
     NullPackage(const NullPackage &orig);
-    ~NullPackage(){};
-
-    /* Accessors */
-    int getTrackingNumber() const { return trackingnumber; }
-    double getWeight() const { return weight; }
-    double getShippingCost() const { return weight; }
+    ~NullPackage(){}
 
 };
 

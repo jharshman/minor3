@@ -4,24 +4,26 @@
 
 #include "Package.h"
 
-/* Default Constructor */
+/* Default Constructor
 Package::Package() {
     setTrackingNumber(0);
     setWeight(0.00);
+    setName("default");
+
 }
 
-/* Constructor */
-Package::Package(int trackingnumber, double weight) {
+/* Constructor
+Package::Package(int trackingnumber, double weight, string name) {
     setTrackingNumber(trackingnumber);
     setWeight(weight);
 }
 
-/* Copy Constructor */
+/* Copy Constructor
 Package::Package(const Package &orig) {
     setTrackingNumber(orig.getTrackingNumber());
     setWeight(orig.getWeight());
 }
-
+*/
 /* setTrackingNumber */
 void Package::setTrackingNumber(int ptracking) {
     trackingnumber = ptracking;
@@ -30,6 +32,11 @@ void Package::setTrackingNumber(int ptracking) {
 /* setWeight */
 void Package::setWeight(double pweight) {
     weight = pweight;
+}
+
+/* setName */
+void Package::setName(string pname) {
+    name = pname;
 }
 
 /* setShippingCost */

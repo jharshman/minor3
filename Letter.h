@@ -7,27 +7,15 @@
 
 #include "Package.h"
 
-#define LETTER_COST 0.5
-
 class Letter : public Package {
 
-    public:
-        /* Constructors and Destructors */
-        Letter();
-        Letter(int trackingnumber, double weight);
-        Letter(const Letter &orig);
-        ~Letter() {};
+public:
+    /* Constructors and Destructors */
+    Letter();
+    Letter(int trackingnumber, double weight, string name);
+    Letter(const Letter &orig);
+    ~Letter(){}
 
-        /* Accessors */
-        int getTrackingNumber() const { return trackingnumber; }
-        double getWeight() const { return weight; }
-        double getShippingCost() const { return shippingcost; };
-
-        /* Abstract Implementations
-        double calculateShippingCost() {
-            return (getWeight() * COST);
-        }
-        */
 };
 
 #endif //MINOR3_5_LETTER_H

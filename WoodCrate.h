@@ -11,9 +11,9 @@ class WoodCrate : public Package {
 
 public:
     WoodCrate();
-    WoodCrate(int trackingnumber, double weight);
+    WoodCrate(int trackingnumber, double weight, string name);
     WoodCrate(const WoodCrate &orig);
-    ~WoodCrate(){};
+    ~WoodCrate(){}
 
 };
 

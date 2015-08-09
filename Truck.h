@@ -5,6 +5,7 @@
 #ifndef MINOR3_5_TRUCK_H
 #define MINOR3_5_TRUCK_H
 
+#include <list>
 #include <string>
 #include "Package.h"
 using namespace std;
@@ -20,12 +21,13 @@ private:
     int numpackages;
     double full;
     double unloaded;
+    list<Package> cargoList;
 
 public:
     /* Constructors and Destructors */
     Truck();
     Truck(string driver, double unloaded, string ocity, string dcity);
-    ~Truck(){};
+    ~Truck(){}
     Truck(const Truck &orig);
 
     /* Accessors */
@@ -46,6 +48,9 @@ public:
     void setFullWeight(double full);
     void setUnloadedWeight(double unloaded);
 
+    /* Subroutines */
+    void addCargo(Package &pkg);
+    void printCargo();
 
 };
 
