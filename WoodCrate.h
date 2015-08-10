@@ -5,15 +5,23 @@
 #ifndef MINOR3_5_WOODCRATE_H
 #define MINOR3_5_WOODCRATE_H
 
+#define WOODENCRATE_COST 10
+
 #include "Package.h"
 
-class WoodCrate : public Package {
+class WoodCrate final : public Package {
+
+protected:
+    string name;
 
 public:
-    WoodCrate();
+    WoodCrate()=default;
     WoodCrate(int trackingnumber, double weight, string name);
-    WoodCrate(const WoodCrate &orig);
-    ~WoodCrate(){}
+
+    /* Virtual Implementations */
+    string getName() const override { return name; }
+    double getCost() const override { return WOODENCRATE_COST; }
+    void setName(string name) override;
 
 };
 

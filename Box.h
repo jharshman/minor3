@@ -5,16 +5,25 @@
 #ifndef MINOR3_5_BOX_H
 #define MINOR3_5_BOX_H
 
+#define BOX_COST 2
+
 #include "Package.h"
 
-class Box : public Package {
+class Box final : public Package {
+
+protected:
+    string name;
 
 public:
     /* Constructors and Destructors */
-    Box();
+    Box()=default;
     Box(int trackingnumber, double weight, string name);
-    Box(const Box &orig);
-    ~Box(){}
+
+    /* Virtual Implementations */
+    string getName() const override { return name; }
+    double getCost() const override { return BOX_COST; }
+    void setName(string name) override;
+
 };
 
 #endif //MINOR3_5_BOX_H
