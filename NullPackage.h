@@ -20,7 +20,7 @@ public:
     NullPackage(int trackingnumber, double weight, string name);
 
     /* Virtual Implementations */
-    string getName() const override { return name; }
+    string getName() { return name; }
     double getCost() const override { return NULL_COST; }
     void setName(string name) override;
 

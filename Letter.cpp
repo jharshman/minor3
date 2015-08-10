@@ -10,6 +10,6 @@ Letter::Letter(int trackingnumber, double weight, string name) : Package(trackin
 }
 
 /* setName */
-void Letter::setName(string pname) {
-    name = pname;
+void Letter::setName(string name) {
+    this->name = name;
 }

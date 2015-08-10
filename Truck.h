@@ -5,6 +5,7 @@
 #ifndef MINOR3_5_TRUCK_H
 #define MINOR3_5_TRUCK_H
 
+#include <vector>
 #include <list>
 #include <string>
 #include "Package.h"
@@ -21,7 +22,7 @@ private:
     int numpackages;
     double full;
     double unloaded;
-    list<Package> cargoList;
+    vector<Package*> cargoList;
 
 public:
     /* Constructors and Destructors */

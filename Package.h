@@ -37,10 +37,9 @@ public:
     void setWeight(double weight);
 
     /* Virtual Functions */
-    virtual string getName() const { return "default"; }
+    virtual string getName()=0;
     virtual double getCost() const { return 0.00; }
     virtual void setName(string name) { }
-
 
 };
 
