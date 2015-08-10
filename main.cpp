@@ -5,13 +5,13 @@
  * */
 
 #include <iostream>
+#include <fstream>
 #include "Truck.h"
 #include "PackageFactory.h"
 using namespace std;
 
 int main() {
 
-    // init truck
     Truck t1 = Truck("bob", 1000, "Spokane", "Seattle");
 
     // Create a package
@@ -21,7 +21,7 @@ int main() {
     t1.addCargo(*p1);
     t1.addCargo(*p2);
     t1.printCargo();
-
     return 0;
 }
+
 

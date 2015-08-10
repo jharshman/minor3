@@ -15,7 +15,6 @@ public:
     Letter(int trackingnumber, double weight, string name);
     Letter(const Letter &orig);
     ~Letter(){}
-
 };
 
 #endif //MINOR3_5_LETTER_H

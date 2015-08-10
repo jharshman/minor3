@@ -14,6 +14,11 @@ using namespace std;
 #define WOODENCRATE_WEIGHT 80
 #define METALCRATE_WEIGHT 100
 
+#define LETTER_COST 0.5
+#define BOX_COST 2
+#define WOODENCRATE_COST 2.50
+#define METALCRATE_COST 3.00
+
 class Package {
 
 protected:

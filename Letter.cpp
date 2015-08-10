@@ -25,4 +25,3 @@ Letter::Letter(const Letter &orig) {
     setName(orig.getName());
 }
 
-
