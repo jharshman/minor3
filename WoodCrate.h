@@ -5,9 +5,10 @@
 #ifndef MINOR3_5_WOODCRATE_H
 #define MINOR3_5_WOODCRATE_H
 
-#define WOODENCRATE_COST 10
+#define WOODENCRATE_COST 2.50
 
 #include "Package.h"
+#include "Logger.h"
 
 class WoodCrate final : public Package {
 
@@ -20,9 +21,9 @@ public:
 
     /* Virtual Implementations */
     string getName() { return name; }
-    double getCost() const override { return WOODENCRATE_COST; }
+    double getCost() const override { return (getWeight() * WOODENCRATE_COST); }
     void setName(string name) override;
-
+    string toString();
 };
 
 #endif //MINOR3_5_WOODCRATE_H

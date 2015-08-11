@@ -5,9 +5,10 @@
 #ifndef MINOR3_5_LETTER_H
 #define MINOR3_5_LETTER_H
 
-#define LETTER_COST 0.5
+#define LETTER_COST 0.05
 
 #include "Package.h"
+#include "Logger.h"
 
 class Letter final : public Package {
 
@@ -21,8 +22,10 @@ public:
 
     /* Virtual Implementations */
     string getName() { return name; }
-    double getCost() const override { return LETTER_COST; }
+    double getCost() const override { return (getWeight() * LETTER_COST); }
     void setName(string name) override;
+
+    string toString();
 
 };
 

@@ -4,4 +4,4 @@ project(minor3_5)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES main.cpp)
-add_executable(minor3_5 ${SOURCE_FILES} Truck.cpp Truck.h Package.cpp Package.h Letter.cpp Letter.h PackageFactory.h PackageFactory.cpp NullPackage.cpp NullPackage.h Box.cpp Box.h WoodCrate.cpp WoodCrate.h MetalCrate.cpp MetalCrate.h)
+add_executable(minor3_5 ${SOURCE_FILES} Truck.cpp Truck.h Package.cpp Package.h Letter.cpp Letter.h PackageFactory.h PackageFactory.cpp NullPackage.cpp NullPackage.h Box.cpp Box.h WoodCrate.cpp WoodCrate.h MetalCrate.cpp MetalCrate.h Logger.cpp Logger.h)

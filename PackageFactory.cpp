@@ -18,7 +18,7 @@ Package* PackageFactory::createPackage(int trackingnumber, double weight) {
                 break;
             }
             else
-                break; // these should throw exception
+                break;
         case PackageFactory::BOX:
             if(weight <= BOX_WEIGHT) {
                 package = new Box(trackingnumber, weight, "Box");

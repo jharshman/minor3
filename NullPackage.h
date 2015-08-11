@@ -8,6 +8,7 @@
 #define NULL_COST  0
 
 #include "Package.h"
+#include "Logger.h"
 
 class NullPackage final : public Package {
 
@@ -23,7 +24,7 @@ public:
     string getName() { return name; }
     double getCost() const override { return NULL_COST; }
     void setName(string name) override;
-
+    string toString();
 };
 
 #endif //MINOR3_5_NULLPACKAGE_H

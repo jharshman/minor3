@@ -19,7 +19,7 @@ private:
     string ocity;
     string dcity;
     string altinfo;
-    int numpackages;
+    int maxpkgs;
     double full;
     double unloaded;
     vector<Package*> cargoList;
@@ -27,7 +27,7 @@ private:
 public:
     /* Constructors and Destructors */
     Truck();
-    Truck(string driver, double unloaded, string ocity, string dcity);
+    Truck(string driver, double unloaded, string ocity, string dcity, int maxpkgs);
     ~Truck(){}
     Truck(const Truck &orig);
 
@@ -36,7 +36,7 @@ public:
     string getOriginCity() const {return ocity; }
     string getDestCity() const { return dcity; }
     string getAltInfo() const { return altinfo; }
-    int getNumPackages() const { return numpackages; }
+    int getMaxPkgs() const { return maxpkgs; }
     double getFullWeight() const { return full; }
     double getUnloadedWeight() const { return unloaded; }
 
@@ -45,13 +45,14 @@ public:
     void setOriginCity(string ocity);
     void setDestCity(string dcity);
     void setAltInfo(string altinfo);
-    void setNumPackages(int numpackages);
+    void setMaxPkgs(int maxpkgs);
     void setFullWeight(double full);
     void setUnloadedWeight(double unloaded);
 
     /* Subroutines */
-    void addCargo(Package &pkg);
+    void addCargo(Package **pkg);
     void printCargo();
+    string toString();
 
 };
 
