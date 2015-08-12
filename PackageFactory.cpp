@@ -14,7 +14,7 @@ Package* PackageFactory::createPackage(int trackingnumber, double weight) {
 
         case PackageFactory::LETTER:
             if (weight <= LETTER_WEIGHT) {
-                package = new Letter(trackingnumber, weight, "Letter");
+                package = new Letter(trackingnumber, (weight/16), "Letter"); // TODO: convert to pounds before passing
                 break;
             }
             else

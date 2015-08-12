@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-#define LETTER_WEIGHT 2
+#define LETTER_WEIGHT 32 // TODO: convert to ounces
 #define BOX_WEIGHT 40
 #define WOODENCRATE_WEIGHT 80
 #define METALCRATE_WEIGHT 100

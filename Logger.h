@@ -5,7 +5,7 @@
 #ifndef MINOR3_5_LOGGER_H
 #define MINOR3_5_LOGGER_H
 
-#define LOGFILE "/home/voodoo/log.txt"
+#define LOGFILE "log.txt"
 
 #include <iostream>
 #include <fstream>

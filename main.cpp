@@ -45,8 +45,11 @@ int main() {
             continue;
         }
     }
-    //print to stdout.  debugging purposes.  Does not show entire log
-    truck.printCargo();
+
+    //extra logs
+    truck.printTruckLoadAndDrive();
+
+    cout << "Log file written to run directory";
 
     return 0;
 

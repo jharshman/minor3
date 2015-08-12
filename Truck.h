@@ -22,6 +22,7 @@ private:
     string altinfo;
     int maxpkgs;
     int numpkgs=0;
+    double totalCost=0.00;
     double full;
     double unloaded;
     vector<Package*> cargoList;
@@ -42,6 +43,7 @@ public:
     int getNumPkgs() const { return numpkgs; };
     double getFullWeight() const { return full; }
     double getUnloadedWeight() const { return unloaded; }
+    double getTotalCost() const { return totalCost; }
 
     /* Modifiers */
     void setName(string name);
@@ -57,6 +59,7 @@ public:
     void addCargo(Package **pkg);
     void printCargo();
     string toString();
+    void printTruckLoadAndDrive();
 
 };
 

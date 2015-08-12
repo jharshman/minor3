@@ -79,7 +79,18 @@ void Truck::addCargo(Package **pkg) {
     if(getNumPkgs() > getMaxPkgs())
         throw NullPackage((*pkg)->getTrackingNumber(), (*pkg)->getWeight(), "NOT LOADING. TRUCK FULL");
     full += (*pkg)->getWeight();
+    totalCost += (*pkg)->getCost();
     cargoList.push_back(*pkg);
+}
+
+/* printTruckLoadAndDrive */
+void Truck::printTruckLoadAndDrive() {
+    stringstream out;
+    out << "Loaded Truck Weight: " << getFullWeight() + getUnloadedWeight() << " lbs" << endl;
+    out << "Driving Truck from: " << getOriginCity() << endl;
+    out << "Arrived at: " << getDestCity() << endl;
+    out << "Total Cost: " << getTotalCost() << endl;
+    Logger log = Logger(LOGFILE, out.str());
 }
 
 /* printCargo */
@@ -97,7 +108,7 @@ void Truck::printCargo() {
         cout << "Package Type: " << (*it)->getName() << endl;
         cout << "Tracking Number: " << (*it)->getTrackingNumber() << endl;
         cout << "Weight: " << (*it)->getWeight() << endl;
-        //cout << "Cost: " << (*it)->getCost() << " monies" << endl;
+        cout << "Cost: " << (*it)->getCost() << " dollars per pound" << endl;
     }
 }
 
