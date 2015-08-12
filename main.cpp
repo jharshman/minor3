@@ -46,11 +46,10 @@ int main() {
         }
     }
 
-    // extra logs
+    //extra logs
     truck.printTruckLoadAndDrive();
 
-    //debug print to stdout
-    truck.printCargo();
+    cout << "Log file written to run directory";
 
     return 0;
 
