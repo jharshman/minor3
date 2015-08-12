@@ -12,16 +12,48 @@ using namespace std;
 
 int main() {
 
-    Truck t1 = Truck("bob", 1000, "Spokane", "Seattle");
+    fstream infile;
+    infile.open("/home/voodoo/ClionProjects/minor3-5/manifest.txt", ios::in);
 
-    // Create a package
+    string driver_name;
+    string s_weight;
+    string origin_city;
+    string destination_city;
+    string m_packages;
+    int tracking;
+    double weight;
+
+    getline(infile, driver_name);
+    getline(infile, s_weight);
+    getline(infile, origin_city);
+    getline(infile, destination_city);
+    getline(infile, m_packages);
+
+    int max_packages = stoi(m_packages);
+    double truck_weight = stoi(s_weight);
+
+    Truck truck = Truck(driver_name, truck_weight, origin_city, destination_city, max_packages);
     PackageFactory *packageFactory = new PackageFactory();
-    Package *p1 = packageFactory->createPackage(123450, 1);
-    Package *p2 = packageFactory->createPackage(5555551, 30);
-    t1.addCargo(*p1);
-    t1.addCargo(*p2);
-    t1.printCargo();
+    Package *aPackage;
+    while (true) {
+        infile >> tracking >> weight;
+        if(infile.eof()) break;
+        try {
+            aPackage = packageFactory->createPackage(tracking, weight);
+            truck.addCargo(&aPackage);
+        }catch(NullPackage &nullPackage) {
+            continue;
+        }
+    }
+
+    // extra logs
+    truck.printTruckLoadAndDrive();
+
+    //debug print to stdout
+    truck.printCargo();
+
     return 0;
+
 }
 
 

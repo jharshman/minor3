@@ -1,27 +1,25 @@
-//
-// Created by voodoo on 8/8/15.
-//
+/**
+ * written by Joshua Harshman
+ * */
 
 #include "MetalCrate.h"
 
-/* Default Constructor */
-MetalCrate::MetalCrate() {
-    setTrackingNumber(0);
-    setWeight(0.00);
-    setName("unknown");
-}
-
 /* Constructor */
-MetalCrate::MetalCrate(int trackingnumber, double weight, string name) {
-    setTrackingNumber(trackingnumber);
-    setWeight(weight);
+MetalCrate::MetalCrate(int trackingnumber, double weight, string name) : Package(trackingnumber, weight) {
     setName(name);
+    Logger log = Logger( LOGFILE, toString() );
 }
 
-/* Copy Constructor */
-MetalCrate::MetalCrate(const MetalCrate &orig) {
-    setTrackingNumber(orig.getTrackingNumber());
-    setWeight(orig.getWeight());
-    setName(orig.getName());
+/* setName */
+void MetalCrate::setName(string name) {
+    this->name = name;
 }
 
+/* toString */
+string MetalCrate::toString() {
+    stringstream out;
+    out << "Package Type: " << getName() << endl;
+    out << "Tracking Number: " << getTrackingNumber() << endl;
+    out << "Weight: " << getWeight() << endl;
+    return out.str();
+}

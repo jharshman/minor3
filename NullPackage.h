@@ -5,17 +5,26 @@
 #ifndef MINOR3_5_NULLPACKAGE_H
 #define MINOR3_5_NULLPACKAGE_H
 
-#include "Package.h"
+#define NULL_COST  0
 
-class NullPackage : public Package {
+#include "Package.h"
+#include "Logger.h"
+
+class NullPackage final : public Package {
+
+protected:
+    string name;
 
 public:
     /* Constructors and Destructors */
-    NullPackage();
+    NullPackage()=default;
     NullPackage(int trackingnumber, double weight, string name);
-    NullPackage(const NullPackage &orig);
-    ~NullPackage(){}
 
+    /* Virtual Implementations */
+    string getName() { return name; }
+    double getCost() const override { return NULL_COST; }
+    void setName(string name) override;
+    string toString();
 };
 
 #endif //MINOR3_5_NULLPACKAGE_H

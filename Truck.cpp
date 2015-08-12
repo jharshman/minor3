@@ -3,6 +3,7 @@
 //
 
 #include "Truck.h"
+#include "Logger.h"
 
 /* Default Constructor */
 Truck::Truck() {
@@ -13,11 +14,15 @@ Truck::Truck() {
 }
 
 /* Constructor */
-Truck::Truck(string driver, double unloaded, string ocity, string dcity) {
+Truck::Truck(string driver, double unloaded, string ocity, string dcity, int maxpkgs) {
     setName(driver);
     setUnloadedWeight(unloaded);
     setOriginCity(ocity);
     setDestCity(dcity);
+    setMaxPkgs(maxpkgs);
+
+    // log this
+    Logger log = Logger( LOGFILE, toString() );
 }
 
 /* Copy Constructor */
@@ -48,9 +53,14 @@ void Truck::setAltInfo(string pinfo) {
     altinfo = pinfo;
 }
 
-/* setNumPackages */
-void Truck::setNumPackages(int pnum) {
-    numpackages = pnum;
+/* setMaxPkgs */
+void Truck::setMaxPkgs(int pnum) {
+    maxpkgs = pnum;
+}
+
+/* setNumPkgs */
+void Truck::setNumPkgs(int pnumpkgs) {
+    numpkgs = pnumpkgs;
 }
 
 /* setFullWeight */
@@ -64,20 +74,53 @@ void Truck::setUnloadedWeight(double pweight) {
 }
 
 /* addCargo */
-void Truck::addCargo(Package &pkg) {
-    full+=pkg.getWeight();
-    cargoList.push_back(pkg);
+void Truck::addCargo(Package **pkg) {
+    setNumPkgs((getNumPkgs() + 1));
+    if(getNumPkgs() > getMaxPkgs())
+        throw NullPackage((*pkg)->getTrackingNumber(), (*pkg)->getWeight(), "NOT LOADING. TRUCK FULL");
+    full += (*pkg)->getWeight();
+    totalCost += (*pkg)->getCost();
+    cargoList.push_back(*pkg);
+}
+
+/* printTruckLoadAndDrive */
+void Truck::printTruckLoadAndDrive() {
+    stringstream out;
+    out << "Loaded Truck Weight: " << getFullWeight() + getUnloadedWeight() << " lbs" << endl;
+    out << "Driving Truck from: " << getOriginCity() << endl;
+    out << "Arrived at: " << getDestCity() << endl;
+    out << "Total Cost: " << getTotalCost() << endl;
+    Logger log = Logger(LOGFILE, out.str());
 }
 
 /* printCargo */
 void Truck::printCargo() {
-    cout << "Driver: " << getName() << endl;
-    cout << "Truck Loaded Weight: " << getUnloadedWeight() + getFullWeight() << endl;
-    list<Package>::iterator index;
-    for(index = cargoList.begin(); index != cargoList.end(); index++) {
-        cout << "Package: " << index->getName() << endl;
-        cout << "Tracking Number: " << index->getTrackingNumber() << endl;
+    cout << "Driver Name: " << getName() << endl;
+    cout << "Unloaded Truck Weight: " << getUnloadedWeight() << endl;
+    cout << "Source City: " << getOriginCity() << endl;
+    cout << "Destination City: " << getDestCity() << endl;
+    cout << "Maximum Packages truck can carry: " << getMaxPkgs() << endl;
+    cout << "PACKAGE LOADING INFORMATION" << endl;
+    cout << "--------------------------------------------------" << endl;
+    //cout << "Truck Loaded Weight: " << getUnloadedWeight() + getFullWeight() << endl;
+    vector<Package*>::iterator it;
+    for(it = cargoList.begin(); it != cargoList.end(); it++) {
+        cout << "Package Type: " << (*it)->getName() << endl;
+        cout << "Tracking Number: " << (*it)->getTrackingNumber() << endl;
+        cout << "Weight: " << (*it)->getWeight() << endl;
+        cout << "Cost: " << (*it)->getCost() << " dollars per pound" << endl;
     }
 }
 
-
+/* toString */
+string Truck::toString() {
+    stringstream out;
+    out << "Driver Name: " << getName() << endl;
+    out << "Unloaded Truck Weight: " << getUnloadedWeight() << endl;
+    out << "Source City: " << getOriginCity() << endl;
+    out << "Destination City: " << getDestCity() << endl;
+    out << "Maximum packages truck can carry: " << getMaxPkgs() << endl;
+    out << "PACKAGE LOADING INFORMATION" << endl;
+    out << "-----------------------------------------" << endl;
+    return out.str();
+}

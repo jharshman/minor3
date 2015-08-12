@@ -1,27 +1,25 @@
-//
-// Created by voodoo on 8/8/15.
-//
+/**
+ * written by Joshua Harshman
+ * */
 
 #include "WoodCrate.h"
 
-/* Default Constructor */
-WoodCrate::WoodCrate() {
-    setTrackingNumber(0);
-    setWeight(0.00);
-    setName("unkown");
-}
-
 /* Constructor */
-WoodCrate::WoodCrate(int trackingnumber, double weight, string name) {
-    setTrackingNumber(trackingnumber);
-    setWeight(weight);
+WoodCrate::WoodCrate(int trackingnumber, double weight, string name) : Package(trackingnumber, weight) {
     setName(name);
+    Logger log = Logger( LOGFILE, toString() );
 }
 
-/* Copy Constructor */
-WoodCrate::WoodCrate(const WoodCrate &orig) {
-    setTrackingNumber(orig.getTrackingNumber());
-    setWeight(orig.getWeight());
-    setName(orig.getName());
+/* setName */
+void WoodCrate::setName(string name) {
+    this->name = name;
 }
 
+/* toString */
+string WoodCrate::toString() {
+    stringstream out;
+    out << "Package Type: " << getName() << endl;
+    out << "Tracking Number: " << getTrackingNumber() << endl;
+    out << "Weight: " << getWeight() << endl;
+    return out.str();
+}

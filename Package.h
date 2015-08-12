@@ -1,6 +1,7 @@
-//
-// Created by voodoo on 8/7/15.
-//
+/**
+ * written by Joshua Harshman
+ * */
+
 
 #ifndef MINOR3_5_PACKAGE_H
 #define MINOR3_5_PACKAGE_H
@@ -9,15 +10,10 @@
 #include <string>
 using namespace std;
 
-#define LETTER_WEIGHT 2
+#define LETTER_WEIGHT 32 // TODO: convert to ounces
 #define BOX_WEIGHT 40
 #define WOODENCRATE_WEIGHT 80
 #define METALCRATE_WEIGHT 100
-
-#define LETTER_COST 0.5
-#define BOX_COST 2
-#define WOODENCRATE_COST 2.50
-#define METALCRATE_COST 3.00
 
 class Package {
 
@@ -25,31 +21,25 @@ protected:
     /* Instance Variables */
     int trackingnumber;
     double weight;
-    double shippingcost;
-    string name;
 
 public:
     /* Constructors and Destructors */
-    /*
-    Package();
-    Package(int trackingnumber, double weight, string name);
-    Package(const Package &orig);
-     */
-    ~Package(){ std::cout << "VERBOSE: Destroying Package" << endl; }
+    Package()=default;
+    Package(int trackingnumber, double weight);
+    virtual ~Package()=default;
 
-    /* Accessors */
+    /* Assessors */
     int getTrackingNumber() const { return trackingnumber; }
     double getWeight() const { return weight; }
-    string getName() const { return name; };
 
     /* Modifiers */
     void setTrackingNumber(int trackingnumber);
     void setWeight(double weight);
-    void setShippingCost(double shippingcost);
-    void setName(string name);
 
-    /* Abstract Subroutines */
-    //virtual double calculateShippingCost()=0;
+    /* Virtual Functions */
+    virtual string getName()=0;
+    virtual double getCost() const { return 0.00; }
+    virtual void setName(string name) { }
 
 };
 

@@ -5,16 +5,25 @@
 #ifndef MINOR3_5_METALCRATE_H
 #define MINOR3_5_METALCRATE_H
 
-#include "Package.h"
+#define METALCRATE_COST 3.00
 
-class MetalCrate : public Package {
+#include "Package.h"
+#include "Logger.h"
+
+class MetalCrate final : public Package {
+
+protected:
+    string name;
 
 public:
-    MetalCrate();
+    MetalCrate()=default;
     MetalCrate(int trackingnumber, double weight, string name);
-    MetalCrate(const MetalCrate &orig);
-    ~MetalCrate(){}
 
+    /* Virtual Implementations */
+    string getName() { return name; }
+    double getCost() const override { return (getWeight() * METALCRATE_COST); }
+    void setName(string name) override;
+    string toString();
 };
 
 #endif //MINOR3_5_METALCRATE_H

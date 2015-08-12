@@ -1,27 +1,27 @@
-//
-// Created by voodoo on 8/7/15.
-//
+/**
+ * written by Joshua Harshman
+ * */
 
 #include "Letter.h"
 
-/* Default Constructor */
-Letter::Letter() {
-    setTrackingNumber(0);
-    setWeight(0.00);
-    setName("unknown");
-}
-
 /* Constructor */
-Letter::Letter(int trackingnumber, double weight, string name) {
-    setTrackingNumber(trackingnumber);
-    setWeight(weight);
+Letter::Letter(int trackingnumber, double weight, string name) : Package(trackingnumber, weight) {
     setName(name);
+
+    //log creation
+    Logger log = Logger( LOGFILE, toString() );
 }
 
-/* Copy Constructor */
-Letter::Letter(const Letter &orig) {
-    setTrackingNumber(orig.getTrackingNumber());
-    setWeight(orig.getWeight());
-    setName(orig.getName());
+/* setName */
+void Letter::setName(string name) {
+    this->name = name;
 }
 
+/* toString */
+string Letter::toString() {
+    stringstream out;
+    out << "Package Type: " << getName() << endl;
+    out << "Tracking Number: " << getTrackingNumber() << endl;
+    out << "Weight: " << getWeight() << endl;
+    return out.str();
+}

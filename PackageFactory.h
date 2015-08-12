@@ -1,5 +1,5 @@
 //
-// Created by voodoo on 8/7/15.
+// Created by Josh on 8/7/15.
 //
 
 #ifndef MINOR3_5_PACKAGEFACTORY_H
@@ -10,6 +10,7 @@
 #include "WoodCrate.h"
 #include "MetalCrate.h"
 #include "NullPackage.h"
+#include "Truck.h"
 
 class PackageFactory {
 
